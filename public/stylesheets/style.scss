@@ -1,0 +1,18 @@
+$main-color: pink;
+
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: $main-color;
+  &:hover{
+      color: adjust-hue($main-color, 20%)
+  }
+}
+
+.posting {
+    border: solid black 1px;
+    border-radius: 50%;
+}
