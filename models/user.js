@@ -5,7 +5,8 @@ let userSchema = new Schema({
     name: String, 
     email: String,
     avatar: String,
-    googleId: String
+    googleId: String,
+    facebook_id: String,
 }, 
 {
     timestamps: true

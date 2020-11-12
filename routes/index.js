@@ -11,6 +11,9 @@ router.get('/auth/google', passport.authenticate(
   'google', 
   {scope:['profile', 'email']}
   ))
+router.get('/auth/facebook', passport.authenticate(
+  'facebook', 
+  ))
 
 // callback route
 router.get('/oauth2callback', passport.authenticate(
@@ -20,6 +23,12 @@ router.get('/oauth2callback', passport.authenticate(
     failureRedirect:'/'
   }
 ))
+router.get('/auth/facebook/callback',       
+  passport.authenticate('facebook', {
+    successRedirect: '/',
+    failureRedirect: '/'
+  }))
+
 
 // logout
 router.get('/logout', function(req, res) {
