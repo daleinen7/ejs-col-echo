@@ -1,17 +1,9 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-    <% if (user) { %>
-      <a href="/logout">Logout</a>
-      <% } else { %>
-        <a href="/auth/google">Login with Google</a>
-        <a href="/auth/facebook">Login with Facebook</a>
-        <% } %>
-  </body>
-</html>
+<%- include('partials/header') %> 
+      <% posts.forEach(post => { %>
+        <div class="posting">
+          <h3><%= post.title %></h3>
+          <p><%= post.description %></p>
+        </div>
+      <% }) %>
+<%- include('partials/footer') %>
+
