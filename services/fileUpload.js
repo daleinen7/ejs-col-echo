@@ -19,18 +19,18 @@ const fileFilter = (req, file, cb) => {
 };
 
 const upload = multer({
-    fileFilter,
-    storage: multerS3({
-      acl: "public-read",
-      s3,
-      bucket: 'col-echo2',
-      metadata: function (req, file, cb) {
-        cb(null, { fieldName: "TESTING_METADATA" });
-      },
-      key: function (req, file, cb) {
-        cb(null, Date.now().toString());
-      },
-    }),
-  });
+  fileFilter,
+  storage: multerS3({
+    acl: "public-read",
+    s3,
+    bucket: 'col-echo2',
+    metadata: function (req, file, cb) {
+      cb(null, { fieldName: "TESTING_METADATA" });
+    },
+    key: function (req, file, cb) {
+      cb(null, Date.now().toString());
+    },
+  }),
+});
   
-  module.exports = upload;
+module.exports = upload;
