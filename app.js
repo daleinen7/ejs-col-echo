@@ -12,10 +12,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var postsRouter = require('./routes/posts');
 
-const cors = require("cors");
-
 var app = express();
-app.use(cors());
 
 // mongoDB
 require('./config/database');
