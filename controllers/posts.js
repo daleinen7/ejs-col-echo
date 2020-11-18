@@ -1,5 +1,5 @@
 const Post = require('../models/post');
-const multer = require('multer');
+const upload = require("../services/fileUpload");
 
 module.exports = {
     allPosts,
@@ -21,14 +21,32 @@ function newPost(req, res) {
 }
 
 function create(req, res) {
+    const singleUpload = upload.single("media-upload");
+    
+    singleUpload(req, res, function (err) {
+        const post = new Post(req.body);
 
-    const post = new Post(req.body);
-
-    console.log(req.file, req.body);
-
-    post.user = req.user._id;
-    post.save(function (err){
-        if(err) return res.render('posts/new'); // TODO return error to user
-        res.redirect('/posts');
-    })
+        if (err) {
+            return res.json({
+                success: false,
+                errors: {
+                    title: "Image Upload Error",
+                    detail: err.message,
+                    error: err,
+                },
+            });
+        }
+        
+        let update = { mediaUpload: req.file.location };
+        
+        post.mediaUrl = update.mediaUpload;
+        post.user = req.user._id;
+        post.save(function (err, post){
+            if(err) {
+                console.log(err);
+                return res.redirect('posts/new'); // TODO return error to user
+            }   
+            res.redirect('/');
+        })
+    });
 }
