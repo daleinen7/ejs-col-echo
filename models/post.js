@@ -5,6 +5,7 @@ let postSchema = new Schema({
     user: {type: Schema.Types.ObjectId, ref: 'User'},
     title: {type: String, required: true}, 
     description: {type: String, required: true},
+    thumbNail: String,
     mediaUrl: String,
     category: {
         type: String,
