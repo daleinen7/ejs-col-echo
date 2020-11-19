@@ -21,9 +21,9 @@ function newPost(req, res) {
 }
 
 function create(req, res) {
-    const singleUpload = upload.single("media-upload");
+    const thumbAndMediaUpload = upload.fields([{name: "media-upload"}, {name: 'thumb-nail'}]);
     
-    singleUpload(req, res, function (err) {
+    thumbAndMediaUpload(req, res, function (err) {
         const post = new Post(req.body);
 
         if (err) {
@@ -36,10 +36,12 @@ function create(req, res) {
                 },
             });
         }
+
+        const fileArray = req.files;
+
+        post.mediaUrl = fileArray['media-upload'][0].location;
+        post.thumbNail = fileArray['thumb-nail'][0].location;
         
-        let update = { mediaUpload: req.file.location };
-        
-        post.mediaUrl = update.mediaUpload;
         post.user = req.user._id;
         post.save(function (err, post){
             if(err) {
