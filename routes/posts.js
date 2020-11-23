@@ -1,13 +1,13 @@
 var express = require('express');
 var router = express.Router();
 const postsCtrl = require('../controllers/posts.js');
-const multer = require('multer');
-const upload = multer({ dest: './public/media'});
 
 router.get('/', postsCtrl.allPosts);
 router.get('/new', isLoggedIn, postsCtrl.new)
 router.get('/:id/update', isLoggedIn, postsCtrl.update)
 router.post('/', isLoggedIn, upload.single('media-upload'), postsCtrl.create)
+router.post('/', isLoggedIn, postsCtrl.create)
+
 
 function isLoggedIn(req,res,next) {
     if(req.isAuthenticated()) {
