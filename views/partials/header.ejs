@@ -9,6 +9,7 @@
     <p>Welcome to <%= title %></p>
     <nav>
       <% if (user) { %>
+        <h4><%= user.name %> </h4>
         <a href="/posts/new">Add a Post</a>
         <a href="/logout">Logout</a>
         <% } else { %>
