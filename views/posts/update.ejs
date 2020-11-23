@@ -1,0 +1,24 @@
+<%- include('../partials/header')  %> 
+
+<section>
+
+    <form action="/posts/<%= post._id%>?_method_PUT" method="post" enctype="multipart/form-data">
+        <label for="title">Title</label>
+        <input type="text" name="title">
+        <label for="description">Description</label>
+        <textarea name="description" cols="30" rows="10" value="<%= post.description %>"></textarea>
+        <label for="media-upload">Upload File</label>
+        <input type="file" name="media-upload">
+        <label for="category">Category</label>
+        <select name="category" value="post.">
+            <option value="experimental">Experimental</option>
+            <option value="comedy">Comedy</option>
+            <option value="music">Music</option>
+            <option value="prose">Prose</option>
+            <option value="poetry">Poetry</option>
+        </select>
+        <input type="submit" value="Add Post">
+    </form>
+</section>
+
+<%- include('../partials/footer')  %> 

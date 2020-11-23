@@ -4,7 +4,8 @@ const multer = require('multer');
 module.exports = {
     allPosts,
     new: newPost,
-    create
+    create,
+    update
 }
 
 function allPosts(req, res) {
@@ -15,6 +16,27 @@ function allPosts(req, res) {
         })
     })
 }
+function update(req, res){
+    Post.findById(req.params.id, function(err, post){
+        console.log("USER ID:", req.user._id, "POST:", post.user, "Params" , req.params)
+        if(req.user._id != post.user ){
+            res.redirect('/')
+            console.log(' if statment not working')
+        }
+        else  {
+        res.render('posts/update', {
+            title: 'Col-Echo | Edit',
+            post,
+            user: req.user
+        },
+        console.log('Render is firing'))
+    
+        
+    }
+})
+}  
+
+
 
 function newPost(req, res) {
     res.render('posts/new', {title: "Col-Echo | Post to Col-Echo"})
