@@ -10,6 +10,9 @@ module.exports = {
 
 function allPosts(req, res) {
     Post.find({}).populate('user').exec(function (err, posts) {
+        if (req.user) {
+            console.log(req.user._id);
+        }
         res.render('index', {
             title: 'Col-Echo | Home',
             posts, user: req.user
