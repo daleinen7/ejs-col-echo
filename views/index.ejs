@@ -36,11 +36,34 @@
           <p class="comment-text"> text here</p>
 
         </div>
-        <form action="/" method="post">
-          Subject<textarea name="description" cols="15" rows="1">Subject Here</textarea> <br>
-          <textarea name="description" cols="30" rows="2">comments here</textarea>
-          <input type="submit" value="Add Post">
+        <form id="comment-form" action="/" method="post">
+          Subject<textarea name="subject" cols="15" rows="1">Subject Here</textarea> <br>
+          <textarea name="text" cols="30" rows="2">comments here</textarea>
+          <button formaction="" id="submit-button" type="submit">Add Comment</button>
         </form>
+        <!-- this is the ajax code for creating and displaying a new comment -->
+        <script>
+          $("#comment-form").on("#submit-button", function(){
+            console.log("ajax has run")
+            var data = $("#comment-form").serialize();
+            
+            $.ajax({
+              url: '',
+              type: 'POST',
+              cache: false,
+              data: data,
+              success: function(){
+              alert("this is working")
+              }
+            })
+              
+          
+          })
+
+        </script>
+
+
+
       </div>
       <% }) %>
 

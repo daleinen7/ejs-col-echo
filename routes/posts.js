@@ -6,7 +6,7 @@ router.get('/', postsCtrl.allPosts);
 router.get('/new', isLoggedIn, postsCtrl.new)
 router.get('/:id/update', isLoggedIn, postsCtrl.update)
 router.post('/', isLoggedIn, postsCtrl.create)
-router.post('/', isLoggedIn, postsCtrl.makeComment)
+
 
 function isLoggedIn(req,res,next) {
     if(req.isAuthenticated()) {
