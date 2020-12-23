@@ -5,6 +5,7 @@ const postsCtrl = require('../controllers/posts');
 
 /* GET home page. */
 router.get('/', postsCtrl.allPosts);
+router.post('/',postsCtrl.makeComment)
 
 // login
 router.get('/auth/google', passport.authenticate(
