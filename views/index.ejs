@@ -36,36 +36,43 @@
           <p class="comment-text"> text here</p>
 
         </div>
-        <form id="comment-form" action="/" method="post">
-          Subject<textarea name="subject" cols="15" rows="1">Subject Here</textarea> <br>
-          <textarea name="text" cols="30" rows="2">comments here</textarea>
-          <button formaction="" id="submit-button" type="submit">Add Comment</button>
+        <form id="comment-form" action="/" method="POST">
+          Subject<textarea id="subject-text" name="subject" cols="15" rows="1">Subject Here</textarea> <br>
+          <textarea id="text-text" name="text" cols="30" rows="2">comments here</textarea>
+          <input type="hidden" name="post_id" value="<%= post._id%>">
+          <button id="submit-button" type="submit">Add Comment</button>
         </form>
-        <!-- this is the ajax code for creating and displaying a new comment -->
-        <script>
-          $("#comment-form").on("#submit-button", function(){
-            console.log("ajax has run")
-            var data = $("#comment-form").serialize();
-            
-            $.ajax({
-              url: '',
-              type: 'POST',
-              cache: false,
-              data: data,
-              success: function(){
-              alert("this is working")
-              }
-            })
-              
-          
-          })
-
-        </script>
-
-
+        
 
       </div>
       <% }) %>
+
+      <!-- this is the ajax code for creating and displaying a new comment -->
+      <script>
+      $("#comment-form").on("submit", function(event){
+        event.preventDefault();
+        event.stopPropagation();
+        console.log($('#comment-form').val())
+        var url = "/"
+        console.log()
+        let data = $(this);
+        
+        
+        $.ajax({
+          url: url,
+          method: 'POST',
+          dataType: JSON,
+          data: data.serialize(),
+          dataType: 'text',
+          success: function(data) {
+          },
+          error: function(){
+            alert('no data');
+          }
+        })
+      }) 
+    </script>
+
 
 <%- include('partials/footer') %>
 

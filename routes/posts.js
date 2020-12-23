@@ -8,6 +8,8 @@ router.get('/:id/update', isLoggedIn, postsCtrl.update)
 router.post('/', isLoggedIn, postsCtrl.create)
 
 
+
+
 function isLoggedIn(req,res,next) {
     if(req.isAuthenticated()) {
         next();
