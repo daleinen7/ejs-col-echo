@@ -31,11 +31,14 @@
         
       </div>
       <div class="comments-accordian"> <button class="accordian-trigger">See Comments</button>
+        <% for (comm of post.comments){ %>
+          <%= console.log(comm) %>
         <div class="comment-container">
-          <h4 class="commnet-header"> comment header </button>  </h4>
-          <p class="comment-text"> text here</p>
-
+          <h4 class="commnet-header"> <%= comm.subject %> </button>  </h4>
+          <p class="comment-text"> <%= comm.text  %></p>
+          
         </div>
+        <% } %>
         <form id="comment-form" action="/" method="POST">
           Subject<textarea id="subject-text" name="subject" cols="15" rows="1">Subject Here</textarea> <br>
           <textarea id="text-text" name="text" cols="30" rows="2">comments here</textarea>

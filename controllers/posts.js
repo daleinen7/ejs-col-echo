@@ -16,9 +16,11 @@ function allPosts(req, res) {
         }
         res.render('index', {
             title: 'Col-Echo | Home',
-            posts, user: req.user
+            posts, 
+            user: req.user,
         })
     })
+    
 }
 
 // async 
