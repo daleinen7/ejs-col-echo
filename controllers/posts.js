@@ -27,7 +27,6 @@ function allPosts(req, res) {
 function makeComment(req, res){
     let comm = req.body
     Post.findById(req.body.post_id, function(err, post){
-        console.log(comm)
         post.comments.push(comm)
         post.save()
     })

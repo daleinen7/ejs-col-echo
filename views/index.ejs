@@ -32,13 +32,13 @@
       </div>
       <div class="comments-accordian"> <button class="accordian-trigger">See Comments</button>
         <% for (comm of post.comments){ %>
-          <%= console.log(comm) %>
         <div class="comment-container">
           <h4 class="commnet-header"> <%= comm.subject %> </button>  </h4>
           <p class="comment-text"> <%= comm.text  %></p>
           
         </div>
         <% } %>
+      </div>
         <form id="comment-form" action="/" method="POST">
           Subject<textarea id="subject-text" name="subject" cols="15" rows="1">Subject Here</textarea> <br>
           <textarea id="text-text" name="text" cols="30" rows="2">comments here</textarea>
@@ -47,17 +47,14 @@
         </form>
         
 
-      </div>
+      
       <% }) %>
 
       <!-- this is the ajax code for creating and displaying a new comment -->
       <script>
       $("#comment-form").on("submit", function(event){
         event.preventDefault();
-        event.stopPropagation();
-        console.log($('#comment-form').val())
         var url = "/"
-        console.log()
         let data = $(this);
         
         
@@ -68,10 +65,12 @@
           data: data.serialize(),
           dataType: 'text',
           success: function(data) {
+           alert('function fired')
           },
           error: function(){
             alert('no data');
-          }
+          },
+          
         })
       }) 
     </script>
