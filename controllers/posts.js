@@ -37,23 +37,20 @@ function makeComment(req, res){
 
 
 function update(req, res){
-    Post.findById(req.params.id, function(err, post){
-        console.log("USER ID:", req.user._id, "POST:", post.user, "Params" , req.params)
-        if(req.user._id != post.user ){
+    Post.findById(req.params.id, function(err, post) {
+        // console.log("USER ID:", toString(req.user._id) , "POST:", toString(post.user) , "Params" , req.params)
+        if(toString(req.user._id) != toString(post.user) ){
             res.redirect('/')
             console.log(' if statment not working')
+        } else  {
+            res.render('posts/update', {
+                title: 'Col-Echo | Edit',
+                post,
+                user: req.user,
+            }, 
+            console.log('Render is firing'))
         }
-        else  {
-        res.render('posts/update', {
-            title: 'Col-Echo | Edit',
-            post,
-            user: req.user
-        },
-        console.log('Render is firing'))
-    
-        
-    }
-})
+    })
 }  
 
 
