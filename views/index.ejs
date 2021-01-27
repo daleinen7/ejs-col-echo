@@ -11,25 +11,26 @@
 
       <% posts.forEach(post => { %>
 
-      <div class="circle" >
-        <div class="circle__inner" >
-          <div class="circle__wrapper" >
-            <div class="circle__content" style="background-image: url('<%= post.thumbNail %>');">
-              <%= post.user.name %>
-              <br>
-              <%= post.title %>
-              <br>
-              <%= post.description %>
-              <% if (post.user.equals(user && user._id)) { %>
-                <p>I MADE THIS!</p>
-                <p><a href="/posts/<%= post._id %>/update">Update Post</a></p>
-              <% } %> 
-            </div>
-          </div>
-        </div>
-        
-        
+      <div class="circle" style="background-image: url('<%= post.thumbNail %>');">
+        <div class="post-content">
+          <h3>
+            <%= post.user.name %>
+          </h3>
+          
+          <h4>
+            <%= post.title %>
+          </h4>
+          
+          <p>
+            <%= post.description %>
+          </p>
+          
+          <% if (post.user.equals(user && user._id)) { %>
+          <a href="/posts/<%= post._id %>/update">Update Post</a>
+          <% } %>
+        </div> 
       </div>
+      
       <div class="comments-accordian"> <button class="accordian-trigger">See Comments</button>
         <% for (comm of post.comments){ %>
         <div class="comment-container">
@@ -39,15 +40,12 @@
         </div>
         <% } %>
       </div>
-        <form id="comment-form" action="/" method="POST">
-          Subject<textarea id="subject-text" name="subject" cols="15" rows="1">Subject Here</textarea> <br>
-          <textarea id="text-text" name="text" cols="30" rows="2">comments here</textarea>
-          <input type="hidden" name="post_id" value="<%= post._id%>">
-          <button id="submit-button" type="submit">Add Comment</button>
-        </form>
-        
-
-      
+      <form id="comment-form" action="/" method="POST">
+        Subject<textarea id="subject-text" name="subject" cols="15" rows="1">Subject Here</textarea> <br>
+        <textarea id="text-text" name="text" cols="30" rows="2">comments here</textarea>
+        <input type="hidden" name="post_id" value="<%= post._id%>">
+        <button id="submit-button" type="submit">Add Comment</button>
+      </form>
       <% }) %>
 
       <!-- this is the ajax code for creating and displaying a new comment -->
@@ -56,8 +54,7 @@
         event.preventDefault();
         var url = "/"
         let data = $(this);
-        
-        
+
         $.ajax({
           url: url,
           method: 'POST',
@@ -69,12 +66,8 @@
           },
           error: function(){
             alert('no data');
-          },
-          
+          },       
         })
       }) 
     </script>
-
-
 <%- include('partials/footer') %>
-
