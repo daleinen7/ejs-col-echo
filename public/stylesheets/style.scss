@@ -1,36 +1,6 @@
-// $main-color: pink;
-
-// body {
-//   padding: 50px;
-//   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-// }
-
-// a {
-//   color: $main-color;
-//   &:hover{
-//       color: adjust-hue($main-color, 20%)
-//   }
-// }
-
-// .circle {
-//   height: 300px;
-//   position: relative;
-//   width: 300px;
-// }
-
-// .posting {
-//   background: radial-gradient(
-//     ellipse at center,
-//     rgba(0, 128, 172, 1) 0%,
-//     rgba(0, 128, 172, 1) 70%,
-//     rgba(0, 128, 172, 0) 70.3%
-//   );
-//   height: 100%;
-//   width: 100%;
-// }
-
 html {
   box-sizing: border-box;
+  font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 *,
@@ -44,55 +14,40 @@ html {
 }
 
 body {
-  margin: 64px auto;
-  max-width: 640px;
-  width: 94%;
   text-align: center;
+}
+
+main {
+  width: 100%;
+  margin: 0 auto;
+  height: auto;
+  // background-color: black;
+  // display: inline-block;
 }
 
 .circle {
   position: relative;
-  display: block;
-  margin: 2em 0;
-  background-color: transparent;
-  color: #222;
-  text-align: center;
-}
-
-.circle:after {
-  display: block;
-  padding-bottom: 100%;
-  width: 100%;
-  height: 0;
   border-radius: 50%;
-  content: "";
-  border: black 1px solid;
-  box-shadow: 2px 2px 8px #000000;
-}
-
-.circle__inner {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
   width: 100%;
   height: 100%;
-    overflow: hidden;
-
+  padding-top: 100%;
+  background-size: 100% 100%;
+  display: flex;
+  justify-content: center;  
+  box-shadow: 1px 3px 10px #3C404B;
+  .post-content {
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    margin-top: -50%;
+    color: white;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+    border-bottom-right-radius: 1000px;
+    border-bottom-left-radius: 1000px;
+    background-color: rgba(165, 196, 198, 0.8);
+  }
 }
-
-.circle__wrapper {
-  display: table;
-  width: 100%;
-  height: 100%;
-}
-
-.circle__content {
-  display: table-cell;
-  padding: 1em;
-  vertical-align: middle;
-}
-
 
 @media (min-width: 480px) {
   .circle__content {
@@ -111,5 +66,4 @@ body {
   width:2.5em;
   margin-top: -.5em;
   margin-left: 1em;
-  // color: red($color: #000000);
 }
