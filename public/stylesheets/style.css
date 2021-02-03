@@ -64,4 +64,47 @@ main {
   margin-left: 1em;
 }
 
+.circle-form {
+  width: 50%;
+  height: 50px;
+  margin: 0 auto;
+  border-radius: 100%;
+  padding-top: 100%;
+  background-size: 100% 100%;
+  border: 1px red solid;
+}
+.circle-form form {
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  margin-top: -50%;
+  color: white;
+  background-color: rgba(165, 196, 198, 0.8);
+}
+.circle-form form .form-line {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2em;
+}
+.circle-form form label {
+  width: 29%;
+  display: inline-block;
+  text-align: right;
+  padding-right: 1em;
+}
+.circle-form form input[type=text i] {
+  width: 70%;
+}
+.circle-form form textarea {
+  width: 70%;
+  height: 4em;
+}
+.circle-form form input[type=file i] {
+  width: 70%;
+  border: 4px dashed #fff;
+}
+
 /*# sourceMappingURL=style.css.map */

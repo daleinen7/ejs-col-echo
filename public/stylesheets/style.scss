@@ -21,8 +21,6 @@ main {
   width: 100%;
   margin: 0 auto;
   height: auto;
-  // background-color: black;
-  // display: inline-block;
 }
 
 .circle {
@@ -66,4 +64,55 @@ main {
   width:2.5em;
   margin-top: -.5em;
   margin-left: 1em;
+}
+
+.circle-form {
+  width: 50%;
+  height: 50px;
+  margin: 0 auto;
+  border-radius: 100%;
+  padding-top: 100%;
+  background-size: 100% 100%;
+  border: 1px red solid;
+  form {
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+    .form-line {
+        display: flex;
+        align-items: center;
+        margin-bottom: 2em;
+      }
+
+      label {
+        width: 29%;
+        display: inline-block;
+        text-align: right;
+        padding-right: 1em;
+        // border: 1px solid green;
+      }
+
+      input[type="text" i] {
+        width: 70%;
+      }
+
+      textarea {
+        width: 70%;
+        height: 4em;
+      }
+
+      input[type="file" i] {
+        width: 70%;
+        border: 4px dashed #fff;
+      }
+
+      position: absolute;
+      width: 50%;
+      height: 50%;
+      margin-top: -50%;
+      color: white;
+      // border-bottom-right-radius: 1000px;
+      // border-bottom-left-radius: 1000px;
+      background-color: rgba(165, 196, 198, 0.8);
+    }
 }
