@@ -66,23 +66,21 @@ main {
 
 .circle-form {
   width: 50%;
-  height: 50px;
   margin: 0 auto;
   border-radius: 100%;
-  padding-top: 100%;
+  padding-top: 50%;
   background-size: 100% 100%;
   border: 1px red solid;
 }
 .circle-form form {
+  justify-content: center;
   display: flex;
   flex-direction: column;
-  padding: 1em;
+  padding-top: 25%;
   position: absolute;
   width: 50%;
   height: 50%;
   margin-top: -50%;
-  color: white;
-  background-color: rgba(165, 196, 198, 0.8);
 }
 .circle-form form .form-line {
   display: flex;
@@ -98,13 +96,17 @@ main {
 .circle-form form input[type=text i] {
   width: 70%;
 }
+.circle-form form input[type=submit i] {
+  width: 20%;
+  text-align: center;
+}
 .circle-form form textarea {
   width: 70%;
   height: 4em;
 }
 .circle-form form input[type=file i] {
   width: 70%;
-  border: 4px dashed #fff;
+  border: 4px dashed #a02c2c;
 }
 
 /*# sourceMappingURL=style.css.map */
